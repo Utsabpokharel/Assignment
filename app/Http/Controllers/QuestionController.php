@@ -61,7 +61,7 @@ class QuestionController extends Controller
     public function show($id)
     {
         $question = Question::find($id);
-        $comment = Comment::all();
+        $comment = Comment::where('question', $id)->get();
         return view('Question.details', compact('question', 'comment'));
     }
 
