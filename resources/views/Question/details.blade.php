@@ -92,13 +92,13 @@
                     @if ($comments->status == 1)
                     <i class="text-muted"> edited</i>
                     @endif
-                    @if($comments->id ==1)
+                    @if($comments->comment == $first)
                     <i class="badge bg-secondary">1st Comment</i>
                     @endif
-                    @if($comments->id ==5)
+                    @if($comments->comment == $fifth)
                     <i class="badge bg-secondary">5th Comment</i>
                     @endif
-                    @if($comments->id ==10)
+                    @if($comments->comment == $tenth)
                     <i class="badge bg-secondary">10th Comment</i>
                     @endif
                 </span>
