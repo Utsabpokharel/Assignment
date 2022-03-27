@@ -48,7 +48,13 @@
                     <hr>
                     <div class="row">
                         <i class="fa fa-user col-md-4"> {{$question->user->name}} </i>
+                        {{-- {{dd($question->id)}} --}}
+                        @php
+                        $comment = App\Models\Comment::where('question_id',
+                        $question->id)->count();
+                        @endphp
                         <i class="fa fa-comment col-md-4 text-muted"> {{$comment}} comments</i>
+
                         <i class="fa fa-clock-o col-md-4 text-muted"> {{$question->asked_on}}</i>
                     </div>
                 </a>

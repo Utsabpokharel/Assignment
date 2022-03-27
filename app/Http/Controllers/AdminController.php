@@ -6,6 +6,7 @@ use App\Models\Comment;
 use App\Models\Question;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 
 class AdminController extends Controller
@@ -14,10 +15,7 @@ class AdminController extends Controller
     public function index()
     {
         $questions = Question::orderBy('id', 'DESC')->get();
-        $first = Question::first();
-        $q = Question::pluck('id')->all();
-        $comment = Comment::where('question', $q)->count();
-        return view('index', compact('questions', 'first', 'comment'));
+        return view('index', compact('questions'));
     }
     public function register()
     {

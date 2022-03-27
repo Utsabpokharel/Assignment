@@ -42,7 +42,7 @@ class CommentController extends Controller
             'comment' => $request->comment,
             'comment_by' => Auth::user()->id,
             'comment_on' => $d,
-            'question' => $request->question,
+            'question_id' => $request->question,
         ];
         Comment::create($data);
         return redirect()->back();
