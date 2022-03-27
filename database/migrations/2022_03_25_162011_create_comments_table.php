@@ -21,8 +21,8 @@ return new class extends Migration
             $table->date('edited_on')->nullable();
             $table->unsignedBigInteger('comment_by');
             $table->foreign('comment_by')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
-            $table->unsignedBigInteger('question');
-            $table->foreign('question')->references('id')->on('questions')->onUpdate('cascade')->onDelete('cascade');
+            $table->unsignedBigInteger('question_id');
+            $table->foreign('question_id')->references('id')->on('questions')->onUpdate('cascade')->onDelete('cascade');
             $table->timestamps();
         });
     }
