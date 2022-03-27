@@ -62,7 +62,12 @@ class QuestionController extends Controller
     {
         $question = Question::find($id);
         $comment = Comment::where('question_id', $id)->get();
-        return view('Question.details', compact('question', 'comment'));
+        $first = Comment::where('question_id', $id)->pluck('comment')->get(0);
+        $fifth = Comment::where('question_id', $id)->pluck('comment')->get(4);
+        $tenth = Comment::where('question_id', $id)->pluck('comment')->get(9);
+
+        // dd($first);
+        return view('Question.details', compact('question', 'comment', 'first', 'fifth', 'tenth'));
     }
 
     /**
